@@ -9,7 +9,7 @@ namespace ToDoApp
 {
     class Printer
     {
-        public string Content = File.ReadAllText(@"C:\Users\Szilard\Documents\greenfox\r0nuh-todo-app\ToDoApp\ToDo.txt");
+        public string[] Content = File.ReadAllLines(@"C:\Users\Szilard\Documents\greenfox\r0nuh-todo-app\ToDoApp\ToDo.txt");
 
         public string[] CliArguments = {
             "-l   Lists all the tasks",
@@ -31,8 +31,12 @@ namespace ToDoApp
 
         public void ListTasks(string argument)
         {
-
-            Console.WriteLine(Content);
+            int i = 0;
+            foreach (string line in Content)
+            {
+                ++i;
+                Console.WriteLine("{0} - {1}", i, line);
+            }
         } 
     }
 }
