@@ -31,12 +31,20 @@ namespace ToDoApp
 
         public void ListTasks(string argument)
         {
-            int i = 0;
-            foreach (string line in Content)
+            if (Content.Length > 0)
             {
-                ++i;
-                Console.WriteLine("{0} - {1}", i, line);
+                int i = 0;
+                foreach (string line in Content)
+                {
+                    ++i;
+                    Console.WriteLine("{0} - {1}", i, line);
+                }
             }
+            else
+            {
+                Console.WriteLine("No todos for today! :)");
+            }
+            
         } 
     }
 }
