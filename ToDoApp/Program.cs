@@ -11,8 +11,19 @@ namespace ToDoApp
         static void Main(string[] args)
         {
             var print = new Printer();
-            print.NoArgument();
 
+            foreach(string arg in args)
+            {
+                if (arg == "-l")
+                {
+                print.ListTasks("-l");
+                }
+                else if (args == null)
+                {
+                print.NoArgument();
+                }
+
+            }
             //Console.Read();
             
         }

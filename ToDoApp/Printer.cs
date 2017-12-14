@@ -29,9 +29,9 @@ namespace ToDoApp
             }
         }
 
-
-        public void ListTasks()
+        public void ListTasks(string argument)
         {
+
             Console.WriteLine(Content);
         } 
     }
