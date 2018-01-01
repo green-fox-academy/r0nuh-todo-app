@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ToDoApp
 {
     class Printer
     {
-        public string[] Content = File.ReadAllLines(@"C:\Users\Szilard\Documents\greenfox\r0nuh-todo-app\ToDoApp\ToDo.txt");
+        protected string[] content = File.ReadAllLines(@"C:\Users\Szilard\Documents\greenfox\r0nuh-todo-app\ToDoApp\ToDo.txt");
 
-        public string[] CliArguments = {
+        string[] cliArguments = {
             "-l   Lists all the tasks",
             "-a   Adds a new task",
             "-r   Removes a task",
@@ -23,18 +19,18 @@ namespace ToDoApp
             Console.WriteLine("=============================");
             Console.WriteLine();
             Console.WriteLine("Command line arguments:");
-            foreach (string argument in CliArguments)
+            foreach (string argument in cliArguments)
             {
                 Console.WriteLine(argument);
             }
         }
 
-        public void ListTasks(string argument)
+        public void ListTasks()
         {
-            if (Content.Length > 0)
+            if (content.Length > 0)
             {
                 int i = 0;
-                foreach (string line in Content)
+                foreach (string line in content)
                 {
                     ++i;
                     Console.WriteLine("{0} - {1}", i, line);
@@ -43,8 +39,7 @@ namespace ToDoApp
             else
             {
                 Console.WriteLine("No todos for today! :)");
-            }
-            
+            } 
         } 
     }
 }
